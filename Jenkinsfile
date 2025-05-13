@@ -21,11 +21,11 @@ stages {
 
     stage('Deploy WAR') {
         steps {
-            ```
+          
 // Replace with your actual remote details
         sh 'scp -o StrictHostKeyChecking=no target/MymavenWebApp01.war shruthi@172.18.19.169:/opt/tomcat/webapps/'
     }
-```
+
 
         }
     }
