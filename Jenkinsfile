@@ -19,14 +19,11 @@ pipeline {
             }
         }
 
-        stage('Deploy WAR') {
+        stage('Deploy WAR Locally') {
             steps {
                 sh '''
-                    # Step 1: Copy WAR to /tmp on remote server
-                    scp -o StrictHostKeyChecking=no target/MymavenWebApp01.war shruthi@172.18.19.169:/tmp/
-
-                    # Step 2: SSH into the server and move it with sudo
-                    ssh -o StrictHostKeyChecking=no shruthi@172.18.19.169 "sudo mv /tmp/MymavenWebApp01.war /opt/tomcat/webapps/"
+                    # Local copy to Tomcat webapps directory
+                    sudo cp target/MymavenWebApp01.war /opt/tomcat/webapps/
                 '''
             }
         }
